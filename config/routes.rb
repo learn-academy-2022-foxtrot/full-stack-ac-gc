@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'home' => 'home#index'
+  get 'blogs' => 'home#index', as: 'blogs'
+  get 'blogs/:id' => 'home#show', as: 'blog'
 
-  root "home#index"
+  root to: "home#index"
   
 end
+
