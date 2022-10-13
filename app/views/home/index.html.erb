@@ -3,10 +3,13 @@
 <ul>
   <% @blogs.each do |blog| %>
     <li>
-      <%= link_to blog.title, blog_path(blog) %>   
+      <%= link_to blog.title, blog_path(blog) %> 
+      <%= button_to "Delete", @blog, :method => :delete %>
     </li>
   <% end %>
 </ul>
+
+
 <p>
   <%= link_to 'Add a blog', new_blog_path %>
 </p>
