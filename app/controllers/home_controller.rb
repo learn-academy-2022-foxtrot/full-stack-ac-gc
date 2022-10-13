@@ -16,4 +16,11 @@ class HomeController < ApplicationController
           redirect_to blogs_path
         end
 end
+
+# keyword that will prohibit methods from being called outside the scope of this class
+private
+# strong params - data protections inside a request
+def blog_params
+  params.require(:blog).permit(:title, :content)
+    end
 end
