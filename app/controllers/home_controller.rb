@@ -9,12 +9,19 @@ class HomeController < ApplicationController
 
     def new
         @blog = Blog.new
-      end
-      def create
-        @blog = Blog.create(blog_params)
-        if @blog.valid?
-          redirect_to blogs_path
-        end
+    end
+    
+    def create
+       @blog = Blog.create(blog_params)
+       if @blog.valid?
+          redirect_to blogs_path  
+    end
+    
+    def delete
+      @blog = Blog.find(params[:id])
+      @blog.destroy
+      redirect_to blogs_path
+    end
 end
 
 # keyword that will prohibit methods from being called outside the scope of this class
